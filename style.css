@@ -1,0 +1,613 @@
+*{
+    box-sizing: border-box;
+}
+
+.disable-scrolling{
+height: 100%;
+overflow: hidden;
+}
+
+html, body{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    height: 100%;
+    width: 100%;
+    overflow-x:hidden;
+}
+
+body{
+    background: linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%);
+    background-blend-mode: screen;    
+    background-attachment: fixed;
+}
+
+.circle{
+    position: absolute;
+    background-image: linear-gradient(to top, #e6b980 0%, #eacda3 100%);
+    z-index: -1;
+}
+
+.circle-sm{
+    width: 10vw;
+    height: 10vw;
+    left: 10vw;
+    top:calc((100vh - 10vw) / 2);
+    border-radius: 65%;
+    transform: rotate(70deg);
+}
+
+.circle-m{
+    width: 20vw;
+    height: 20vw;
+    left:25vw;
+    top:calc((100vh - 20vw) / 2);
+    border-radius: 65%;
+}
+
+.circle-l{
+    width: 45vw;
+    height: 40vw;
+    left:50vw;
+    top:calc((100vh - 40vw) / 2);
+    border-radius: 60%;
+
+}
+
+header{
+    width: 90%;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:transparent;
+}
+
+#logo{
+    font-size: 40px;
+    font-weight: 600;
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+}
+
+.menu{
+    display: none;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    user-select: none;
+}
+
+nav > ul{
+    display: flex;
+}
+
+nav > ul > li{
+    margin-left: 30px;
+    flex-basis: auto;
+}
+
+nav > ul > li > a{
+    display: block;
+    text-decoration: none;
+    font-size: 27px;
+    flex: 1;
+    color:#000;
+    user-select: none;
+}
+
+nav > ul > li > a:hover{
+    color: #fff;
+}
+
+@media screen and (min-width: 568px) {
+    nav > ul > li > a::after{
+        content: "";
+        display: none;
+        position: absolute;
+        background-color: black;
+        width: 22.5%;
+        height: 5px;
+        top: 90%;
+        border-radius: 20%;
+        transition: all 600ms;
+    }
+    
+    nav > ul > li > a:hover::after{
+        display: block;
+        background-color: #fff;
+    }
+}
+
+
+#hero{
+    height: calc(100vh - 100px);
+    width: 95vw;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    border-right: 5px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    padding-top: 40px;
+    flex-basis: 60%;
+}
+
+#hero-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hero-text h2{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 48px;
+    animation: fly 2s alternate-reverse 0s infinite;
+}
+
+@keyframes fly{
+    0%{
+        transform:translateY(0);
+    }
+    
+    100%{
+        transform:translateY(-10px);
+    }
+}
+
+#hero-text p{
+    max-width: 90%;
+    font-size: 20px;
+    line-height: 24px;
+    text-indent: 4ch;
+    margin-bottom: 32px;
+}
+
+button.contact{
+    font-size: 20px;
+    width: 15ch;
+    line-height: 40px;
+    border: 1px solid #fff;
+    border-radius: 10%;
+    background:transparent;
+    color:#fff;
+    transition: transform 150ms;
+    margin-bottom: 40px;
+}
+
+button.contact:hover{
+    transform: scale(1.15, 1.1);
+    background-color: #fff;
+    color: #000;
+}
+
+div.cover{
+    flex-basis: 30%;
+    height: 30vw;
+}
+
+div.cover > img{
+    object-fit: cover;
+    height: 100%;
+}
+
+#about{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about h4{
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.bubbles{
+    display: flex;
+    justify-content: space-around;
+}
+
+.bubble{
+    background-image: linear-gradient(to top, rgba(254, 173, 166, 0.75) 0%, rgba(245, 239, 239, 0.75) 100%);
+    flex: 1;
+    overflow: hidden;
+    height: auto;
+    margin: 0 16px 16px 16px;
+    border-radius: 10%;
+    transition: transform 200ms;
+    position: relative;
+}
+
+.bubble:hover{
+    transform: scale(1.02, 1.02);
+}
+
+.bubble::after{
+    content: "";
+    width: 30%;
+    height: 5px;
+    background-color: #f00;
+    position: absolute;
+    top:56px;
+    left: -30%;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: left 200ms;
+}
+
+.bubble:hover::after{
+    left: 30%;
+}
+
+.bubble h5{
+    font-size: 32px;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 32px;
+    color:#dd4949;
+}
+
+.bubble p{
+    font-size: 18px;
+    text-indent: 5ch;
+    line-height: 24px;
+    margin-right: 16px;
+    margin-left: 16px;
+    margin-bottom: 32px;
+}
+
+#contact{
+    width: 98%;
+    margin: 0 auto 25px auto;
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#contact > p{
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+.contact-bubbles{
+    display: flex;
+}
+
+.contact-bubble{
+    flex: 24%;
+    margin: 0 1%;
+    display: block;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(213, 222, 231, 0.6) 0%, rgba(232, 235, 242, 0.6) 50%, rgba(226, 231, 237, 0.6) 100%), linear-gradient(to bottom, rgba(0,0,0,0.02) 50%, rgba(255,255,255,0.02) 61%, rgba(0,0,0,0.02) 73%), linear-gradient(33deg, rgba(255,255,255,0.20) 0%, rgba(0,0,0,0.20) 100%);
+    background-blend-mode: normal,color-burn;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color:#000;
+    transition: transform 200ms
+}
+
+.contact-bubble:hover{
+    transform: scale(1.05, 1.05);
+}
+
+
+.contact-bubble > img{
+    width: 20%;
+    margin-bottom: 24px;
+}
+
+.social-title{
+    margin-bottom: 32px;
+    font-size: 32px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 0 50px 0 50px;
+    transition: border-radius 300ms;
+    user-select: none;
+}
+
+.contact-bubble:hover .social-title{
+    border-radius: 50px 0 50px 0;
+}
+
+
+.contact-bubble > p{
+    font-size: 20px;
+    line-height: 24px;
+}
+
+@media screen and (min-width: 1900px){
+    div.cover{
+        height: 15vw;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    header{
+        margin-bottom: 16px;
+    }
+
+    #logo{
+        font-size: 32px;
+    }
+
+    nav > ul > li > a{
+        font-size: 24px;
+    }
+    
+    #hero-content{
+        flex-basis: 70%;
+        margin-right: 32px;
+    }
+
+    #hero-text h2{
+        font-size: 24px;
+    }
+
+    #hero-text p{
+        font-size: 16px;
+    }
+
+    button.contact{
+        font-size: 16px;
+    }
+
+    button.contact:hover{
+        transform: scale(1.07, 1.07);
+    }
+
+    #about{
+        padding-top: 48px;
+    }
+
+    #about h4{
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+
+    .bubbles{
+        flex-direction: column;
+    }
+
+    .bubble p{
+        font-size: 16px;
+    }
+
+    #contact > p{
+        margin-bottom: 25px;
+    }
+
+    .contact-bubbles{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 24px 24px;
+    }
+
+    .contact-bubble{
+        flex: 48%;
+        margin: 0;
+    }
+
+    .contact-bubble:hover{
+        transform: scale(1.025, 1.025);
+    }
+
+    .contact-bubble > img{
+        width: 48px;
+    }
+
+    .contact-bubble > p{
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .social-title{
+        display: inline-block;
+        font-size: 24px;
+        margin: 0 0 24px 1ch;
+        transform: translateY(-50%);
+        padding: 5px 20px;
+        border-radius: 0 50px 0 50px;
+        transition: border-radius 1s;
+    }
+
+    .contact-bubble > h6:hover{
+        border-radius: 50px 0 50px 0;
+    }
+    
+    .contact-bubble > img{
+        width: 42px;
+        margin: 0;
+    }
+
+    .contact-bubble > p{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 750px){
+    header{
+        margin-bottom: 0;
+    }
+    nav > ul > li > a{
+        font-size:20px;
+    }
+    #hero-content{
+        flex-basis:70%;
+    }
+
+    #hero-text h2{
+        margin-bottom: 32px;
+    }
+
+    #hero-text p{
+        line-height: 24px;
+    }
+
+    button.contact{
+        margin-bottom: 20px;
+    }
+
+    .contact-bubble > img{
+        width: 36px;
+        transform: translateY(-6px);
+    }
+}
+
+@media screen and (max-width: 568px){
+    header{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 5% 0 5%;
+        transition: all 500ms;
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    #logo{
+        margin-bottom: 24px;
+    }
+
+    .menu{
+        display: block;
+        position: absolute;
+        right: 5%;
+        transition: transform 300ms;
+    }
+
+    nav{
+        display: none;
+        width: 100%;
+        margin-left: 12px;
+    }
+    nav > ul{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav > ul > li{
+        margin: 0;
+    }
+
+    nav > ul > li > a{
+        margin-bottom: 16px;
+        width: 80%;
+        line-height: 32px;
+        text-indent: 2ch;
+        border-radius: 2px 10px 10px 2px;
+    }
+
+    nav > ul > li > a:hover{
+        background-color: #000;
+    }
+
+    #hero{
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+
+    #hero-content{
+        border: none;
+        padding: 0;
+        flex-basis: auto;
+        margin: 0;
+        margin-bottom:16px
+    }
+
+    #hero-text h2{
+        margin-bottom: 48px;
+    }
+
+    #hero-text p{
+        width: 100%;
+    }
+
+    div.cover{
+        flex-basis: auto;
+        height: 50vh;
+    }
+
+    #contact > p{
+        font-size: 18px;
+    }
+
+    .social-title{
+        font-size: 20px;
+    }
+
+    .contact-bubble > p{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 472px){
+    nav > ul > li > a{
+        font-size: 18px;
+    }
+    #hero-text h2{
+        font-size: 18px;
+        margin-bottom: 36px;
+    }
+
+    #hero-text p{
+        font-size: 14px;
+    }
+
+    .bubble h5{
+        font-size: 28px;
+    }
+
+    .bubble p{
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    #contact{
+        width: 95%;
+    }
+    
+    .contact-bubbles{
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: none;
+    }
+
+    .contact-bubble{
+        padding: 20px;
+        padding-bottom: 10px;
+    }
+   
+    .contact-bubble > img{
+        width: 30px;
+    }
+
+    .social-title{
+        font-size: 18px;
+    }
+
+    .contact-bubble > p{
+        font-size: 15px;
+    }
+}
